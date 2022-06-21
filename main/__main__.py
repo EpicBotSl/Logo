@@ -120,7 +120,7 @@ async def start_menu(_,query):
   await query.message.edit(HELP,reply_markup=InlineKeyboardMarkup(HELP_BTN))
   
   @app.on_callback_query(filters.regex("BACK_MENU"))
-async def start_menu(_,query):
+async def back_menu(_,query):
   await query.answer()
   await query.message.edit(START,reply_markup=InlineKeyboardMarkup(STARTB))
 
