@@ -35,7 +35,7 @@ HELP = """
 `/logosq TechZBots`
 """
 HELP_BTN = [
-   [InlineKeyboardButton('Back', callback_data="BACK_MENU")
+   [InlineKeyboardButton('Back', callback_data="BACK_MENU")]
 ]
 
 # Commands
