@@ -4,9 +4,52 @@ from pyrogram import filters, idle
 from pyrogram.errors import FloodWait
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, CallbackQuery
 from main.logo import generate_logo
+from pyrogram import Client
+from pyrogram.types import InlineQueryResultArticle, InputTextMessageContent
+
+
+@app.on_inline_query()
+async def answer(client, inline_query):
+    await inline_query.answer(
+        results=[
+            InlineQueryResultArticle(
+                title="Installation",
+                input_message_content=InputTextMessageContent(
+                    "Here's how to install **Pyrogram**"
+                ),
+                url="https://docs.pyrogram.org/intro/install",
+                description="How to install Pyrogram",
+                reply_markup=InlineKeyboardMarkup(
+                    [
+                        [InlineKeyboardButton(
+                            "Open website",
+                            url="https://docs.pyrogram.org/intro/install"
+                        )]
+                    ]
+                )
+            ),
+            InlineQueryResultArticle(
+                title="Usage",
+                input_message_content=InputTextMessageContent(
+                    "Here's how to use **Pyrogram**"
+                ),
+                url="https://docs.pyrogram.org/start/invoking",
+                description="How to use Pyrogram",
+                reply_markup=InlineKeyboardMarkup(
+                    [
+                        [InlineKeyboardButton(
+                            "Open website",
+                            url="https://docs.pyrogram.org/start/invoking"
+                        )]
+                    ]
+                )
+            )
+        ],
+        cache_time=1
+    )
 
 START = """
-**🔮 Hello There, You Can Use Me To Create Awesome Logos...**
+**🔥 Hello There, You Can Use Me To Create Awesome Logos⚡...**
 
 ➤ Click /help Or The Button Below To Know How To Use Me
 """
@@ -40,11 +83,11 @@ HELP_BTN = [
 # Commands
 @app.on_message(filters.command("start"))
 async def start(bot, message):
-  await message.reply_photo("https://telegra.ph/file/57f8a652ee527500864e5.jpg",caption=START,reply_markup=InlineKeyboardMarkup(STARTB), reply_sticker=('CAACAgUAAxkBAAEFFdRisHcr0C1_svwE_gAB2PhkruEaZcgAAoUGAAI2X4lVZVPINGURBWcoBA'))
+  await message.reply_photo("https://telegra.ph/file/57f8a652ee527500864e5.jpg",caption=START,reply_markup=InlineKeyboardMarkup(STARTB))
 
 @app.on_message(filters.command("help"))
 async def help(bot, message):
-  await message.reply_photo("https://telegra.ph/file/57f8a652ee527500864e5.jpg",caption=HELP,reply_markup=InlineKeyboardMarkup(HELP_BTN), reply_sticker=(CAACAgUAAxkBAAEFFdRisHcr0C1_svwE_gAB2PhkruEaZcgAAoUGAAI2X4lVZVPINGURBWcoBA))
+  await message.reply_photo("https://telegra.ph/file/57f8a652ee527500864e5.jpg",caption=HELP,reply_markup=InlineKeyboardMarkup(HELP_BTN))
 
 @app.on_message(filters.command("logo") & filters.incoming & filters.text & ~filters.forwarded & (
   filters.group | filters.private))
