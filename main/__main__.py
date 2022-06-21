@@ -10,6 +10,19 @@ START = """
 
 ➤ Click /help Or The Button Below To Know How To Use Me
 """
+STARTB = [
+            [
+                InlineKeyboardButton('HELP', callback_data="HELP_CALLBACK")
+            ],
+            [
+                InlineKeyboardButton(' SUPPORT', url='https://t.me/NightVissionSupport'),
+                InlineKeyboardButton('📣 CHANNEL', url='https://t.me/NightVission'),
+                InlineKeyboardButton(' CREATOR', url='https://t.me/NA_VA_N_JA_NA1')
+            ],
+            [
+                InlineKeyboardButton('NIGHT VISSION BOT LIST', callback_data="BOT_CALLBACK")
+            ]
+        ]
 
 HELP = """
 **🖼 How To Use Me ?**
@@ -25,7 +38,7 @@ HELP = """
 # Commands
 @app.on_message(filters.command("start"))
 async def start(bot, message):
-  await message.reply_photo("https://telegra.ph/file/7a98ead33e7b99fd82cc7.jpg",caption=START,reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Help", callback_data="help_menu"), InlineKeyboardButton(text="Repo", url="https://github.com/TechShreyash/TechZ-Logo-Maker-Bot")]]))
+  await message.reply_photo("https://telegra.ph/file/7a98ead33e7b99fd82cc7.jpg",caption=START,reply_markup=InlineKeyboardMarkup(STARTB))
 
 @app.on_message(filters.command("help"))
 async def help(bot, message):
