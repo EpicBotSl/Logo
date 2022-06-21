@@ -7,35 +7,7 @@ from main.logo import generate_logo
 from pyrogram import Client
 from pyrogram.types import InlineQueryResultArticle, InputTextMessageContent
 
-
-@app.on_inline_query()
-async def answer(client, inline_query):
-    await inline_query.answer(
-        results=[
-            InlineQueryResultArticle(
-                title="Share",
-                input_message_content=InputTextMessageContent(
-                    "/logo **Epic Bots**"
-                ),
-            InlineQueryResultArticle(
-                title="EpicBots",
-                input_message_content=InputTextMessageContent(
-                    "/logo Epic"
-                ),
-                url="https://docs.pyrogram.org/start/invoking",
-                description="How to use Pyrogram",
-                reply_markup=InlineKeyboardMarkup(
-                    [
-                        [InlineKeyboardButton(
-                            "JOIN EPIC BOTS🇱🇰",
-                            url="https://t.me/EpicBotsSl"
-                        )]
-                    ]
-                )
-            )
-        ],
-        cache_time=1
-    )
+#Commands--Messages----------
 
 START = """
 **🔥 Hello There, You Can Use Me To Create Awesome Logos⚡...**
@@ -144,6 +116,40 @@ async def logo(bot, message):
       pass
     return await message.reply_text("`❌ Something Went Wrong...`\n\nReport This Error In @EpicChats")
 
+#InlineQueryes
+@Client.on_inline_query()
+async def answer(client, inline_query):
+   if inline_query.query=='share':
+        await inline_query.answer(
+            results=[
+                InlineQueryResultVideo(
+                    title="Share Karapam",
+                    photo_url="https://telegra.ph/file/50dcdfedfffd2bd4975f5.jpg",
+                    thumb_url="https://telegra.ph/file/50dcdfedfffd2bd4975f5.jpg",
+                    caption=f"""
+🔥This Is Epic Logo Maker Bot!🔥 
+❤️You Can create beautiful logos For Your Dp 
+🚀PowerFull & Simple Bot
+💎Created by </ᴇᴘɪᴄ ʙᴏᴛs <s/ʟ>🇱🇰 2022©!
+All Rights Resived✓
+Post By {inline_query.from_user.mention}
+""",
+                    reply_markup=InlineKeyboardMarkup([[              
+                 InlineKeyboardButton('</ᴇᴘɪᴄ ʙᴏᴛs <s/ʟ>🇱🇰', user_id="@EpicBotsSl")
+                 ],
+                 [
+                 InlineKeyboardButton('🆘Reports', url='https://t.me/EpicChats')
+                 ],
+                 [
+                 InlineKeyboardButton('🌱TRY LOGO BOT', user_id="@EpicLogosBot")
+                 ]])
+                    
+                                
+            ),
+            ],
+            cache_time=1
+        ) 
+   
 # Callbacks
 @app.on_callback_query(filters.regex("HELP_CALLBACK"))
 async def start_menu(_,query):
