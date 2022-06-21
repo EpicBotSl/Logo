@@ -34,9 +34,6 @@ HELP = """
 `/logo TechZBots`
 `/logosq TechZBots`
 """
-HELP_BTN = [
-   [InlineKeyboardButton('Back', callback_data="BACK_MENU")]
-]
 
 # Commands
 @app.on_message(filters.command("start"))
