@@ -119,15 +119,10 @@ async def start_menu(_,query):
   await query.answer()
   await query.message.edit(HELP,reply_markup=InlineKeyboardMarkup(HELP_BTN))
   
-  @app.on_callback_query(filters.regex("BACK_MENU"))
+@app.on_callback_query(filters.regex("BACK_MENU"))
 async def back_menu(_,query):
   await query.answer()
   await query.message.edit(START,reply_markup=InlineKeyboardMarkup(STARTB))
-
-@app.on_callback_query(filters.regex("help_menu"))
-async def help_menu(_,query):
-  await query.answer()
-  await query.message.edit(HELP,reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Back", callback_data="start_menu")]]))
 
 @app.on_callback_query(filters.regex("flogo"))
 async def logo_doc(_,query):
