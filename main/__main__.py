@@ -40,11 +40,11 @@ HELP_BTN = [
 # Commands
 @app.on_message(filters.command("start"))
 async def start(bot, message):
-  await message.reply_photo("https://telegra.ph/file/57f8a652ee527500864e5.jpg",caption=START,reply_markup=InlineKeyboardMarkup(STARTB), reply_sticker='CAACAgUAAxkBAAEFFdRisHcr0C1_svwE_gAB2PhkruEaZcgAAoUGAAI2X4lVZVPINGURBWcoBA')
+  await message.reply_photo("https://telegra.ph/file/57f8a652ee527500864e5.jpg",caption=START,reply_markup=InlineKeyboardMarkup(STARTB), reply_sticker=('CAACAgUAAxkBAAEFFdRisHcr0C1_svwE_gAB2PhkruEaZcgAAoUGAAI2X4lVZVPINGURBWcoBA'))
 
 @app.on_message(filters.command("help"))
 async def help(bot, message):
-  await message.reply_photo("https://telegra.ph/file/57f8a652ee527500864e5.jpg",caption=HELP,reply_markup=InlineKeyboardMarkup(HELP_BTN), reply_sticker='CAACAgUAAxkBAAEFFdRisHcr0C1_svwE_gAB2PhkruEaZcgAAoUGAAI2X4lVZVPINGURBWcoBA')
+  await message.reply_photo("https://telegra.ph/file/57f8a652ee527500864e5.jpg",caption=HELP,reply_markup=InlineKeyboardMarkup(HELP_BTN), reply_sticker=(CAACAgUAAxkBAAEFFdRisHcr0C1_svwE_gAB2PhkruEaZcgAAoUGAAI2X4lVZVPINGURBWcoBA))
 
 @app.on_message(filters.command("logo") & filters.incoming & filters.text & ~filters.forwarded & (
   filters.group | filters.private))
