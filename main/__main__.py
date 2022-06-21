@@ -34,6 +34,9 @@ HELP = """
 `/logo TechZBots`
 `/logosq TechZBots`
 """
+HELP_BTN = [
+   [InlineKeyboardButton('Back', callback_data="BACK_MENU")]
+]
 
 # Commands
 @app.on_message(filters.command("start"))
@@ -114,12 +117,12 @@ async def logo(bot, message):
 @app.on_callback_query(filters.regex("HELP_CALLBACK"))
 async def start_menu(_,query):
   await query.answer()
-  await query.message.edit(HELP,reply_markup=InlineKeyboardMarkup(HELP_BTN)
+  await query.message.edit(HELP,reply_markup=InlineKeyboardMarkup(HELP_BTN))
   
   @app.on_callback_query(filters.regex("BACK_MENU"))
 async def start_menu(_,query):
   await query.answer()
-  await query.message.edit(START,reply_markup=InlineKeyboardMarkup(STARTB)
+  await query.message.edit(START,reply_markup=InlineKeyboardMarkup(STARTB))
 
 @app.on_callback_query(filters.regex("help_menu"))
 async def help_menu(_,query):
