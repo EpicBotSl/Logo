@@ -7,7 +7,7 @@
         "logo",
         "bot"
     ],
-    "repository": "https://github.com/TechShreyash/TechZ-Logo-Maker-Bot",
+    "repository": "https://github.com/EpicBotSl/Logo",
     "website": "https://t.me/TechZBots",
     "success_url": "https://t.me/TechZLogoMakerBot",
     "env": {
