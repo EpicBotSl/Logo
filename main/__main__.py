@@ -38,11 +38,11 @@ HELP = """
 # Commands
 @app.on_message(filters.command("start"))
 async def start(bot, message):
-  await message.reply_photo("http://t.me/EpicLogosBot",caption=START,reply_markup=InlineKeyboardMarkup(STARTB)
+  await message.reply_photo("http://t.me/EpicLogosBot",caption=START,reply_markup=InlineKeyboardMarkup(STARTB))
 
 @app.on_message(filters.command("help"))
 async def help(bot, message):
-  await message.reply_photo("https://telegra.ph/file/7a98ead33e7b99fd82cc7.jpg",caption=HELP,reply_markup=InlineKeyboardMarkup(HELP_BTN)
+  await message.reply_photo("https://telegra.ph/file/7a98ead33e7b99fd82cc7.jpg",caption=HELP,reply_markup=InlineKeyboardMarkup(HELP_BTN))
 
 @app.on_message(filters.command("logo") & filters.incoming & filters.text & ~filters.forwarded & (
   filters.group | filters.private))
